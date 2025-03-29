@@ -17,30 +17,11 @@ spec:
       containers:
       - name: app-process-movement
         image: polyglotxt/nodejs-aws-process-movement:1
-        ports:
-        - containerPort: 8080
         env:
-        - name: NACOS_SERVERADDR
-          value: "18.216.235.222:8848"
-        - name: NACOS_NAMESPACE
-          value: "polyglot"
-        - name: NACOS_IDENTITYKEY
-          value: "nacos"
-        - name: NACOS_IDENTITYVALUE
-          value: "nacos"
-        - name: NACOS_ENV
-          value: "PROD"
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: app-service-process-movement
-spec:
-  type: ClusterIP
-  selector:
-    app: service-process-movement
-  ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 8080
-    name: http
+        - name: KAFKA_SERVER
+          value: "3.133.60.253:9092"
+        - name: DB_MONGO_URI
+          value: "mongodb://polyglot:Polyglot3000@3.133.60.253:27018"
+        - name: DB_MONGO_DATABASE_MOVEMENT
+          value: "DB_MOVEMENT"
+
