@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app-process-movement
-        image: polyglotxt/nodejs-aws-process-movement:1
+        image: loaizamateo96/nodejs-aws-process-movement:3
         env:
         - name: KAFKA_SERVER
           value: "3.133.60.253:9092"
